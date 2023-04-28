@@ -14,11 +14,11 @@ document.onclick = e => {
         avisoRepetida();
     } else {
         if (jogador === 'X') {
-            e.target.innerHTML = jogador;
+            e.target.innerText = jogador;
             checarX();
             jogador = 'O';
         } else {
-            e.target.innerHTML = jogador;
+            e.target.innerText = jogador;
             checarO();
             jogador = 'X';
         }
@@ -29,8 +29,8 @@ document.onclick = e => {
 function checarX() {
     arraySquareRow.forEach(element => {
         result = element.every(e => {
-            if (e.innerHTML === 'X') {
-                return (e.innerHTML === "X")
+            if (e.innerText === 'X') {
+                return (e.innerText === "X")
             }
         });
         if (result) {
@@ -39,8 +39,8 @@ function checarX() {
     });
     arraySquareCol.forEach(element => {
         result = element.every(e => {
-            if (e.innerHTML == 'X') {
-                return (e.innerHTML === "X")
+            if (e.innerText == 'X') {
+                return (e.innerText === "X")
             }
         });
         if (result) {
@@ -49,8 +49,8 @@ function checarX() {
     });
     arraySquareDiag.forEach(element => {
         result = element.every(e => {
-            if (e.innerHTML === 'X') {
-                return (e.innerHTML === "X")
+            if (e.innerText === 'X') {
+                return (e.innerText === "X")
             }
         });
         if (result) {
@@ -62,8 +62,8 @@ function checarX() {
 function checarO() {
     arraySquareRow.forEach(element => {
         result = element.every(e => {
-            if (e.innerHTML === 'O') {
-                return (e.innerHTML === "O")
+            if (e.innerText === 'O') {
+                return (e.innerText === "O")
             }
         });
         if (result) {
@@ -72,8 +72,8 @@ function checarO() {
     });
     arraySquareCol.forEach(element => {
         result = element.every(e => {
-            if (e.innerHTML == 'O') {
-                return (e.innerHTML === "O")
+            if (e.innerText == 'O') {
+                return (e.innerText === "O")
             }
         });
         if (result) {
@@ -82,8 +82,8 @@ function checarO() {
     });
     arraySquareDiag.forEach(element => {
         result = element.every(e => {
-            if (e.innerHTML === 'O') {
-                return (e.innerHTML === "O")
+            if (e.innerText === 'O') {
+                return (e.innerText === "O")
             }
         });
         if (result) {
@@ -94,7 +94,10 @@ function checarO() {
 
 function vitoria() {
     if (result) {
-        console.log(`Vitória de ${jogador}`);
+        const acabou = document.getElementById('acabou');
+        const popup = document.getElementById('popup');
+        popup.innerHTML += `<h1>Vitória do jogador: ${jogador}</h1>`
+        acabou.classList.add('mostrar');
     }
 }
 
@@ -104,4 +107,8 @@ function avisoRepetida() {
     setTimeout(() => {
         aviso.classList.remove('mostrar');
     }, 1000);
+}
+
+function recomecar() {
+    window.location.reload();
 }
