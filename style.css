@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.jogo {
+    width: 650px;
+}
+.square {
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+    background-color: #cccccc;
+    border: none;
+}
+
+.square:hover {
+    background-color: #aaaaaa;
+}
+
+div:has(h2) {
+    display: none;
+}
+
+.mostrar {
+    display: block;
+}
