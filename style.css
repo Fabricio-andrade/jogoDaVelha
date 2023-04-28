@@ -6,6 +6,8 @@
 }
 
 .jogo {
+    display: flex;
+    flex-wrap: wrap;
     width: 650px;
 }
 .square {
@@ -26,4 +28,47 @@ div:has(h2) {
 
 .mostrar {
     display: block;
+}
+
+div:has(div){
+    text-align: center;
+    margin:auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000040;
+}
+
+.fim {
+    margin-top: 5%;
+    font-size: x-large;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.fim:hover {
+    background-color: purple;
+    color: white;
+}
+
+#popup {
+    background-color: white;
+    border-radius: 3%;
+    width: 25vw;
+    height: 30vh;
+    margin: 20% auto;
+}
+
+h3 {
+    padding: 5%;
+}
+
+h1 {
+    padding-top: 8%;
 }
