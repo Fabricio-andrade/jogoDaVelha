@@ -8,6 +8,7 @@ console.log(arraySquareDiag);
 document.querySelectorAll('.square').innerHTML = '';
 let jogador = 'X';
 let result;
+let contagem = 0;
 
 document.onclick = e => {
     if (e.target.innerHTML != '') {
@@ -22,6 +23,10 @@ document.onclick = e => {
             checarO();
             jogador = 'X';
         }
+    }
+    contagem++;
+    if (contagem > 8){
+        vitoria();
     }
 
 }
@@ -97,6 +102,11 @@ function vitoria() {
         const acabou = document.getElementById('acabou');
         const popup = document.getElementById('popup');
         popup.innerHTML += `<h1>Vitória do jogador: ${jogador}</h1>`
+        acabou.classList.add('mostrar');
+    } else {
+        const acabou = document.getElementById('acabou');
+        const popup = document.getElementById('popup');
+        popup.innerHTML += `<h1>Empate</h1>`
         acabou.classList.add('mostrar');
     }
 }
