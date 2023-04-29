@@ -113,7 +113,6 @@ function vitoria() {
         const popup = document.getElementById('popup');
         popup.innerHTML += `<h1>Vitória do jogador: ${jogador}</h1>`
         acabou.classList.add('mostrar');
-        stop;
     } else {
         const acabou = document.getElementById('acabou');
         const popup = document.getElementById('popup');
