@@ -1,4 +1,5 @@
 const square = document.querySelectorAll('.square');
+const jogo = document.querySelector('.jogo');
 const arraySquareRow = [[square[0], square[1], square[2]], [square[3], square[4], square[5]], [square[6], square[7], square[8]]];
 const arraySquareCol = [[square[0], square[3], square[6]], [square[1], square[4], square[7]], [square[2], square[5], square[8]]]
 const arraySquareDiag = [[square[0], square[4], square[8]], [square[2], square[4], square[6]]]
@@ -10,7 +11,7 @@ let jogador = 'X';
 let result;
 let contagem = 0;
 
-document.onclick = e => {
+jogo.onclick = e => {
     if (e.target.innerHTML != '') {
         avisoRepetida();
     } else {
@@ -18,12 +19,21 @@ document.onclick = e => {
             e.target.innerText = jogador;
             checarX();
             jogador = 'O';
-        } else {
-            e.target.innerText = jogador;
-            checarO();
-            jogador = 'X';
         }
+        for (let index = 0; index < square.length; index++) {
+            let i = Math.floor(Math.random(square)*square.length);
+            if (square[i].innerText === ''){
+                square[i].innerText = jogador;
+                checarO();
+                jogador = 'X';
+                break;
+            }
+            
+        }
+            
+        
     }
+    contagem++;
     contagem++;
     if (contagem > 8){
         vitoria();
@@ -103,6 +113,7 @@ function vitoria() {
         const popup = document.getElementById('popup');
         popup.innerHTML += `<h1>Vitória do jogador: ${jogador}</h1>`
         acabou.classList.add('mostrar');
+        stop;
     } else {
         const acabou = document.getElementById('acabou');
         const popup = document.getElementById('popup');
