@@ -27,7 +27,8 @@ jogo.onclick = e => {
             e.target.innerText = jogador;
             checarX();
             jogador = 'O';
-        }
+        } 
+        setTimeout(() => {
         for (let index = 0; index < square.length; index++) {
             let i = Math.floor(Math.random(square)*square.length);
             if (square[i].innerText === ''){
@@ -37,13 +38,15 @@ jogo.onclick = e => {
                 break;
             }
             
-        }
-            
-        
+        }}, 500);
+               
     }
     if (arraySquare.every(e => {return e.innerText != ''})){
         empate();
-    }
+    } 
+}
+
+while(jogador === 'O'){
     
 }
 
