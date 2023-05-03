@@ -17,7 +17,8 @@ document.querySelectorAll('.square').innerHTML = '';
 let jogador = 'X';
 let result;
 let contagem = 0;
-let resultado
+let resultado;
+let empateV = true;
 
 jogo.onclick = e => {
     if (e.target.innerHTML != '') {
@@ -42,7 +43,7 @@ jogo.onclick = e => {
         }, 500);
 
     }
-    if (arraySquare.every(e => { return e.innerText != '' })) {
+    if (arraySquare.every(e => { return e.innerText != '' }) && empateV) {
         empate();
     }
 }
@@ -99,6 +100,7 @@ function vitoria() {
     const popup = document.getElementById('popup');
     popup.innerHTML += `<h1>Vitória do jogador: ${jogador}</h1>`
     acabou.classList.add('mostrar');
+    empateV = false;
 }
 
 function empate() {
