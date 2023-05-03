@@ -25,7 +25,7 @@ jogo.onclick = e => {
     } else {
         if (jogador === 'X') {
             e.target.innerText = jogador;
-            checarX();
+            checar();
             jogador = 'O';
         } 
         setTimeout(() => {
@@ -33,7 +33,7 @@ jogo.onclick = e => {
             let i = Math.floor(Math.random(square)*square.length);
             if (square[i].innerText === ''){
                 square[i].innerText = jogador;
-                checarO();
+                checar();
                 jogador = 'X';
                 break;
             }
@@ -51,43 +51,12 @@ while(jogador === 'O'){
 }
 
 
-function checarX() {
+function checar() {
     arraySquareRow.forEach(element => {
         result = element.every(e => {
-            if (e.innerText === 'X') {
+            if (jogador === 'X') {
                 return (e.innerText === "X")
-            }
-        });
-        if (result) {
-            vitoria();
-        }
-    });
-    arraySquareCol.forEach(element => {
-        result = element.every(e => {
-            if (e.innerText == 'X') {
-                return (e.innerText === "X")
-            }
-        });
-        if (result) {
-            vitoria();
-        }
-    });
-    arraySquareDiag.forEach(element => {
-        result = element.every(e => {
-            if (e.innerText === 'X') {
-                return (e.innerText === "X")
-            }
-        });
-        if (result) {
-            vitoria();
-        }
-    });
-}
-
-function checarO() {
-    arraySquareRow.forEach(element => {
-        result = element.every(e => {
-            if (e.innerText === 'O') {
+            } else if (jogador === 'O') {
                 return (e.innerText === "O")
             }
         });
@@ -97,7 +66,9 @@ function checarO() {
     });
     arraySquareCol.forEach(element => {
         result = element.every(e => {
-            if (e.innerText == 'O') {
+            if (jogador == 'X') {
+                return (e.innerText === "X")
+            } else if (jogador === 'O') {
                 return (e.innerText === "O")
             }
         });
@@ -107,7 +78,9 @@ function checarO() {
     });
     arraySquareDiag.forEach(element => {
         result = element.every(e => {
-            if (e.innerText === 'O') {
+            if (jogador === 'X') {
+                return (e.innerText === "X")
+            } else if (jogador === 'O') {
                 return (e.innerText === "O")
             }
         });
