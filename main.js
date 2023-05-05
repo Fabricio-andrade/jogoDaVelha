@@ -48,11 +48,6 @@ jogo.onclick = e => {
     }
 }
 
-while (jogador === 'O') {
-
-}
-
-
 function checar() {
     arraySquareRow.forEach(element => {
         result = element.every(e => {
@@ -95,7 +90,7 @@ function checar() {
 function noop() {};
 
 function vitoria() {
-    vitoria = noop;
+    vitoria = noop; //limpa a função após ela ser executada 1 vez
     const acabou = document.getElementById('acabou');
     const popup = document.getElementById('popup');
     popup.innerHTML += `<h1>Vitória do jogador: ${jogador}</h1>`
